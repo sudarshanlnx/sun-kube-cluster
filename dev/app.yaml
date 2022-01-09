@@ -3,6 +3,9 @@ kind: Pod
 metadata:
  name: webapp
  namespace: devproject
+ labels:  #to map it with the service
+  app: web
+  env: dev
 spec:
   containers:
   - name: webcon
@@ -19,3 +22,19 @@ spec:
           limits:
             memory: "300Mi"
             cpu: "400m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: websvc   #service name (it can be any name)
+ namespace: devproject
+spec:
+ type: LoadBalancer
+ ports:
+ - name: apache
+   port: 80 #service port
+   targetPort: 80 #container port
+   protocol: TCP
+ selector:     #mapping to pod
+   app: web
+   env: dev
