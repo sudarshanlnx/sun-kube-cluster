@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: frontend
+ namespace: devproject
+spec:
+ replicas: 1
+ selector:
+   matchLabels:
+    apptype: web
+    env: dev
+ template:
+   metadata:
+     name: webtemp
+     labels:
+       apptype: web
+       env: dev
+   spec:
+    containers:
+    - image: sudarshanlnx/twotier:latest
+      name: webcon
+      imagePullPolicy: Always
+      ports:
+      - name: tomcat
+        containerPort: 8080
+        protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: websvc
+ namespace: devproject
+spec:
+ ports:
+ - name: tomcat
+   port: 80
+   targetPort: 8080
+   protocol: TCP
+ selector:
+   apptype: web
+   env: dev
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+   name: webingress
+   namespace: devproject
+spec:
+   rules:
+   - host: "www.lenintech.tk"
+     http:
+       paths:
+       - path: "/"
+         pathType: Prefix
+         backend:
+           service:
+            name: websvc
+            port:
+             number: 80
+
+
+

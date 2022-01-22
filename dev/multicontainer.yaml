@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapp
+  namespace: devproject
+  labels:
+    app: web
+    env: dev
+spec:
+  volumes:
+  - name: commonvol
+    emptyDir: {}
+  containers:
+    - name: webcon
+      image: httpd:latest
+      imagePullPolicy: Always
+      ports:
+        - containerPort: 80
+          name: apache
+          protocol: TCP
+      resources:
+        requests:
+          cpu: "200m"
+          memory: "200Mi"
+        limits:
+          cpu: "400m"
+          memory: "300Mi"
+      volumeMounts:
+      - mountPath: /usr/local/apache2/htdocs
+        name: commonvol
+    - name: sidecarfiler
+      image: centos:7
+      imagePullPolicy: Always
+      volumeMounts:
+        - mountPath: /data
+          name: commonvol
+      command: ["/bin/sh"]
+      args: ["-c", "while true; do echo $(hostname) $(date) >>/data/index.html  ; sleep 10;done"]
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: websvc
+  namespace: devproject
+spec:
+  type: LoadBalancer
+  ports:
+    - name: apache
+      port: 80
+      targetPort: 80
+      protocol: TCP
+  selector:
+    app: web
+    env: dev
