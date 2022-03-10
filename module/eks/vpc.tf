@@ -64,49 +64,49 @@ resource "aws_route_table_association" "routeassoc2" {
   route_table_id = aws_route_table.pubrt.id
   subnet_id = aws_subnet.pubsub02.id
 }
-resource "aws_subnet" "pri01" {
-  cidr_block = var.block5
-  availability_zone = "us-west-2a"
-  vpc_id     = aws_vpc.kubevpc.id
-  tags = {
-    Name = var.pri01
-  }
-}
-resource "aws_subnet" "pri02" {
-  cidr_block = var.block6
-  availability_zone = "us-west-2b"
-  vpc_id     = aws_vpc.kubevpc.id
-  tags = {
-    Name = var.pri02
-  }
-}
-resource "aws_eip" "e01" {
-  vpc = true
-}
-resource "aws_nat_gateway" "nat01" {
-  subnet_id = aws_subnet.pri01.id
-  allocation_id = aws_eip.e01.id
-}
-resource "aws_eip" "e02" {
-  vpc = true
-}
-resource "aws_nat_gateway" "nat02" {
-  subnet_id = aws_subnet.pri02.id
-  allocation_id = aws_eip.e02.id
-}
-resource "aws_route_table" "prirt" {
-  vpc_id = aws_vpc.kubevpc.id
+#resource "aws_subnet" "pri01" {
+#  cidr_block = var.block5
+#  availability_zone = "us-west-2a"
+#  vpc_id     = aws_vpc.kubevpc.id
+#  tags = {
+#    Name = var.pri01
+#  }
+#}
+#resource "aws_subnet" "pri02" {
+#  cidr_block = var.block6
+#  availability_zone = "us-west-2b"
+#  vpc_id     = aws_vpc.kubevpc.id
+#  tags = {
+#    Name = var.pri02
+#  }
+#}
+#resource "aws_eip" "e01" {
+#  vpc = true
+#}
+#resource "aws_nat_gateway" "nat01" {
+#  subnet_id = aws_subnet.pri01.id
+#  allocation_id = aws_eip.e01.id
+#}
+#resource "aws_eip" "e02" {
+#  vpc = true
+#}
+#resource "aws_nat_gateway" "nat02" {
+#  subnet_id = aws_subnet.pri02.id
+#  allocation_id = aws_eip.e02.id
+#}
+#resource "aws_route_table" "prirt" {
+#  vpc_id = aws_vpc.kubevpc.id
 
-  route {
-    cidr_block = var.block4
-    nat_gateway_id = aws_nat_gateway.nat01.id
-  }
-}
-resource "aws_route_table_association" "prirta1" {
-  route_table_id = aws_route_table.prirt.id
-  subnet_id = aws_subnet.pri01.id
-}
-resource "aws_route_table_association" "prirta2" {
-  route_table_id = aws_route_table.prirt.id
-  subnet_id = aws_subnet.pri02.id
-}
+ # route {
+ #   cidr_block = var.block4
+ #   nat_gateway_id = aws_nat_gateway.nat01.id
+ # }
+#}
+#resource "aws_route_table_association" "prirta1" {
+#  route_table_id = aws_route_table.prirt.id
+#  subnet_id = aws_subnet.pri01.id
+#}
+#resource "aws_route_table_association" "prirta2" {
+#  route_table_id = aws_route_table.prirt.id
+#  subnet_id = aws_subnet.pri02.id
+#}
