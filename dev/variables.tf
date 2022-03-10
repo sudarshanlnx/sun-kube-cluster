@@ -11,13 +11,13 @@ variable "pubsub01" {
 variable "pubsub02" {
 
 }
-variable "pri01" {
+#variable "pri01" {
 
-}
+#}
 
-variable "pri02" {
+#variable "pri02" {
 
-}
+#}
 variable "block1" {
 
 }
