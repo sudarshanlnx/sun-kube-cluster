@@ -4,7 +4,7 @@ resource "aws_eks_cluster" "global-cluster" {
   version = "1.20"
 
   vpc_config {
-    subnet_ids = [aws_subnet.pubsub01.id, aws_subnet.pubsub02.id, aws_subnet.pri01.id, aws_subnet.pri02.id]
+    subnet_ids = [aws_subnet.pubsub01.id, aws_subnet.pubsub02.id] #aws_subnet.pri01.id, aws_subnet.pri02.id]
   }
   depends_on = [
     aws_iam_role.globalrole
