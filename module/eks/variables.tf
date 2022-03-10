@@ -15,12 +15,12 @@ variable "pubsub01" {
 variable "pubsub02" {
   type        = string
 }
-variable "pri01" {
-  type        = string
-}
-variable "pri02" {
-  type        = string
-}
+#variable "pri01" {
+#  type        = string
+#}
+#variable "pri02" {
+#  type        = string
+#}
 
 variable "block1" {
   type        = string
