@@ -9,7 +9,7 @@ metadata:
 spec:
  containers:
  - name: webcon
-   image: sudarshanlnx/2022sundayweb:v1
+   image: sudarshanlnx/farmfresh:v1
    imagePullPolicy: Always
    ports:
    - containerPort: 80
@@ -35,7 +35,7 @@ spec:
  type: NodePort
  ports:
  - name: apache
-   nodePort: 30002 #node port
+   nodePort: 30002 #node port mention the same in security group
    port: 80 #service port
    targetPort: 80 #container port
    protocol: TCP

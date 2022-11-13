@@ -17,7 +17,7 @@ spec:
         env: dev
     spec:
       containers:
-      - image: sudarshanlnx/2022sundayweb:v1
+      - image: sudarshanlnx/farmfresh:v1
         name: webcon
         imagePullPolicy: Always
         ports:
@@ -156,7 +156,7 @@ metadata:
    namespace: devproject
 spec:
    rules:
-   - host: "www.lenintech.tk"
+   - host: "www.akilashtech.tk"
      http:
        paths:
        - path: "/"
@@ -166,7 +166,7 @@ spec:
              name: websvc
              port:
               number: 80
-   - host: "www.lenintech.tk"
+   - host: "www.akilashtech.tk"
      http:
        paths:
        - path: "/banana"
@@ -176,7 +176,7 @@ spec:
                name: bananasvc
                port:
                  number: 80
-   - host: "www.lenintech.tk"
+   - host: "www.akilashtech.tk"
      http:
        paths:
        - path: "/apple"
