@@ -155,6 +155,7 @@ metadata:
    name: webingress
    namespace: devproject
 spec:
+   ingressClassName: nginx
    rules:
    - host: "www.akilashtech.tk"
      http:
