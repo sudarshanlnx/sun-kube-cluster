@@ -273,7 +273,7 @@ metadata:
   namespace: ingress-nginx
 spec:
   type: LoadBalancer
-  externalTrafficPolicy: Local
+  externalTrafficPolicy: Cluster
   ipFamilyPolicy: SingleStack
   ipFamilies:
     - IPv4
