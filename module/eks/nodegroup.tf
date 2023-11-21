@@ -37,7 +37,7 @@ resource "aws_eks_node_group" "global-node-group" {
   instance_types = ["t3.small"]
   scaling_config {
     desired_size = 2
-    max_size = 2
+    max_size = 3
     min_size = 2
   }
   labels = {
@@ -49,3 +49,6 @@ resource "aws_eks_node_group" "global-node-group" {
     aws_iam_role_policy_attachment.global-eks-worker-policy,
   ]
 }
+
+
+

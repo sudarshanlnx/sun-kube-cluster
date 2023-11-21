@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webdeployment
+  namespace: devproject
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      apptype: web
+      env: dev
+  template:
+    metadata:
+      name: webtemp
+      labels:
+        apptype: web
+        env: dev
+    spec:
+      containers:
+      - image: sudarshanlnx/farmfresh:v1
+        name: webcon
+        imagePullPolicy: Always
+        ports:
+        -  name: apache
+           containerPort: 80
+           protocol: TCP
+        resources:
+           requests:
+             memory: "40Mi"
+             cpu: "40m"
+           limits:
+             memory: "50Mi"
+             cpu: "50m"

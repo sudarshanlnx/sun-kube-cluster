@@ -1,7 +1,7 @@
 resource "aws_eks_cluster" "global-cluster" {
   name = var.clustername
   role_arn = aws_iam_role.globalrole.arn
-  version = "1.20"
+  version = "1.28"
 
   vpc_config {
     subnet_ids = [aws_subnet.pubsub01.id, aws_subnet.pubsub02.id] #aws_subnet.pri01.id, aws_subnet.pri02.id]
@@ -10,7 +10,7 @@ resource "aws_eks_cluster" "global-cluster" {
     aws_iam_role.globalrole
   ]
   tags = {
-    Name = "clustertype"
+    Name = "clustertest"
     Environment = var.env
   }
 }

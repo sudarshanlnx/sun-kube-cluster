@@ -17,7 +17,15 @@ resource "aws_iam_role" "globalrole" {
 POLICY
 }
 
-resource "aws_iam_role_policy_attachment" "globalatachment" {
+resource "aws_iam_role_policy_attachment" "globalatachment1" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
   role       = aws_iam_role.globalrole.name
 }
+
+#resource "aws_iam_role_policy_attachment" "globalatachment" {
+#  policy_arn = "arn:aws:iam::aws:policy/aws-service-role/AmazonEKSServiceRolePolicy"
+#  role       = aws_iam_role.globalrole.name
+#}
+
+
+

@@ -4,7 +4,7 @@ metadata:
  name: frontend
  namespace: devproject
 spec:
- replicas: 1
+ replicas: 2
  selector:
    matchLabels:
     apptype: web
@@ -47,8 +47,9 @@ metadata:
    name: webingress
    namespace: devproject
 spec:
+   ingressClassName: nginx
    rules:
-   - host: "www.lenintech.tk"
+   - host: "www.techieproject.com"
      http:
        paths:
        - path: "/"

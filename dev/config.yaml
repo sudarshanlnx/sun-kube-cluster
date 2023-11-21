@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: test-config
+  namespace: devproject
+data:
+   class.name: "kubernetes"
+   class.day: "weekdays"
+#   test.properties: |
+#     shop=textiles
+#     men=shirts
+#     women=sarees
+#     kids=T-shirts

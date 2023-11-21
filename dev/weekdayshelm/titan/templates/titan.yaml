@@ -1,0 +1,23 @@
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: webpod
+#   namespace: devproject
+# spec:
+#   containers:
+#   - name: webcon
+# 	image: {{ .Values.image.repository }}
+#     #imagePullPolicy: IfNotPresent
+# 	imagePullPolicy: {{ .Values.image.pullPolicy }}
+#     ports:
+#     - containerPort: 80
+#       name: apache
+#       protocol: TCP
+#     resources:
+#       requests:
+#         memory: {{ .Values.memory }}
+#         cpu: "200m"
+#       limits:
+#          memory: "400Mi"
+#          cpu: "400m"
+#   restartPolicy: OnFailure

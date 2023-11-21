@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: websvc   #service name (it can be any name)
+ namespace: devproject
+spec:
+ type: LoadBalancer
+ ports:
+ - name: apache
+   port: 80 #service port
+   targetPort: 80 #container port
+   protocol: TCP
+ selector:     #mapping to pod
+   app: web
+   env: dev

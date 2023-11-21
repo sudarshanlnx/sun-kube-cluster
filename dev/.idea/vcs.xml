@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/helm1/demo/sudarshan-charts" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/helm1/sudarshan-charts" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/k3s-argo-rollouts" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/sudarshan-charts" vcs="Git" />
+  </component>
+</project>

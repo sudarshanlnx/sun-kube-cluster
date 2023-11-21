@@ -126,6 +126,7 @@ subjects:
     name: ingress-nginx
     namespace: ingress-nginx
 ---
+
 # Source: ingress-nginx/templates/controller-role.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -269,11 +270,12 @@ metadata:
     app.kubernetes.io/version: 1.1.1
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: controller
+
   name: ingress-nginx-controller
   namespace: ingress-nginx
 spec:
   type: LoadBalancer
-  externalTrafficPolicy: Local
+  externalTrafficPolicy: Cluster
   ipFamilyPolicy: SingleStack
   ipFamilies:
     - IPv4

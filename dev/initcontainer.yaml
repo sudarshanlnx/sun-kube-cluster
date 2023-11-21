@@ -13,7 +13,7 @@ spec:
     image: centos:7
     imagePullPolicy: Always
     command: ["/bin/sh"]
-    args: ["-c", "curl http://www.lenintech.tk"]
+    args: ["-c", "curl http://www.google.com"]
   containers:
     - name: webcon
       image: httpd:latest
