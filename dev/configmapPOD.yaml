@@ -30,3 +30,10 @@ spec:
        configMapKeyRef:
          name: test-config
          key: class.day
+   volumeMounts:
+   - name: test
+     mountPath: "/tmp"
+ volumes:
+ - name: test
+   configMap:
+     name: game-config-2
