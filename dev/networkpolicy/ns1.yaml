@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev1
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: devapp1
+  namespace: dev1
+  labels:
+    app: devpod1
+spec:
+  containers:
+  - name: devcon1
+    image: sudarshanlnx/neptune1:v1
+    imagePullPolicy: IfNotPresent
+    ports:
+    - containerPort: 80
+      name: apache
+      protocol: TCP
+    resources:
+      requests:
+        memory: "300Mi"
+        cpu: "200m"
+      limits:
+         memory: "400Mi"
+         cpu: "400m"
+
