@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev2
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: devapp2
+  namespace: dev2
+  labels:
+    app: devpod2
+spec:
+  containers:
+  - name: devcon2
+    image: sudarshanlnx/neptune1:v1
+    imagePullPolicy: IfNotPresent
+    ports:
+    - containerPort: 80
+      name: apache
+      protocol: TCP
+    resources:
+      requests:
+        memory: "300Mi"
+        cpu: "200m"
+      limits:
+         memory: "400Mi"
+         cpu: "400m"
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: devapp4
+  namespace: dev2
+  labels:
+    app: devpod4
+spec:
+  containers:
+  - name: devcon4
+    image: sudarshanlnx/neptune1:v1
+    imagePullPolicy: IfNotPresent
+    ports:
+    - containerPort: 80
+      name: apache
+      protocol: TCP
+    resources:
+      requests:
+        memory: "300Mi"
+        cpu: "200m"
+      limits:
+         memory: "400Mi"
+         cpu: "400m"
