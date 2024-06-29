@@ -10,7 +10,7 @@ data "aws_ami" "hemant_ami" {
 resource "aws_instance" "hemant" {
   ami           = "${data.aws_ami.hemant_ami.id}"
   instance_type = var.machinetype
-  key_name = "A_10-30_keypair"
+  key_name = "ret"
 
   tags = {
     Name = "HelloWorld"
