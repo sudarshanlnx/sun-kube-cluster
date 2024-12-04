@@ -1,3 +1,4 @@
+#main website deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -47,6 +48,7 @@ spec:
    apptype: web
    env: dev
 ---
+#banana website deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -98,6 +100,7 @@ spec:
    apptype: banana
    env: dev
 ---
+#apple website deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
