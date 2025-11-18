@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webdeployment
+  namespace: devproject
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      apptype: web
+      env: dev
+  template:
+    metadata:
+      name: webtemp
+      labels:
+        apptype: web
+        env: dev
+    spec:
+
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  apptype: web
+                  env: dev
+              topologyKey: kubernetes.io/hostname
+      
+      containers:
+      - image: sudarshanlnx/farmfresh:v1
+        name: webcon
+        imagePullPolicy: Always
+        ports:
+        - name: apache
+          containerPort: 80
+          protocol: TCP
+
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          successThreshold: 1
+          failureThreshold: 3
+        
+
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 10
+          timeoutSeconds: 3
+          successThreshold: 1
+          failureThreshold: 3
+
+        resources:
+          requests:
+            memory: "50Mi"
+            cpu: "40m"
+          limits:
+            memory: "60Mi"
+            cpu: "50m"
