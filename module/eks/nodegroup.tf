@@ -37,7 +37,7 @@ resource "aws_eks_node_group" "global-node-group" {
   instance_types = ["t2.micro"]
   scaling_config {
     desired_size = 2
-    max_size = 2
+    max_size = 4
     min_size = 2
   }
   labels = {
