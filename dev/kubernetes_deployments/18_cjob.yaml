@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: test-cron2
+  namespace: devproject
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: busybox
+              image: busybox
+              command:
+                - "/bin/sh"
+                - "-c"
+                - |
+                  if ping -c 1 www.google.com > /dev/null 2>&1; then
+                    echo "Google is reachable";
+                  else
+                    echo "Google is not reachable";
+                  fi
+                  
+                  if [ -f /tmp/games ]; then
+                    echo "File /tmp/games exists";
+                  else
+                    echo "File /tmp/games does not exist";
+                  fi
+          restartPolicy: Never

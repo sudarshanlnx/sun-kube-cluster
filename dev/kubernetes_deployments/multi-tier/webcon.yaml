@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: frontend
+ name: java
  namespace: devproject
 spec:
  replicas: 1
@@ -47,8 +47,9 @@ metadata:
    name: webingress
    namespace: devproject
 spec:
+   ingressClassName: nginx
    rules:
-   - host: "www.lenintech.tk"
+   - host: "www.awsdevopsai.online"
      http:
        paths:
        - path: "/"

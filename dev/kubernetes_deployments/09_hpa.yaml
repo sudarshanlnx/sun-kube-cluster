@@ -4,7 +4,7 @@ metadata:
   name: webdeployment
   namespace: devproject
 spec:
-  replicas: 1
+  # replicas: 1
   selector:
     matchLabels:
       apptype: web
@@ -56,7 +56,7 @@ metadata:
 spec:
    ingressClassName: nginx
    rules:
-   - host: "www.akilashtech.tk"
+   - host: "www.awsdevopsai.online"
      http:
        paths:
        - path: "/"
@@ -75,7 +75,8 @@ metadata:
 spec:
   maxReplicas: 3
   minReplicas: 1
-  targetCPUUtilizationPercentage: 30
+  targetCPUUtilizationPercentage: 10
+ #targetMemoryUtilizationPercentage: 30
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment

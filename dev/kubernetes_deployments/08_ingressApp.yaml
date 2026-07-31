@@ -157,7 +157,7 @@ metadata:
 spec:
    ingressClassName: nginx
    rules:
-   - host: "www.techieproject.com"
+   - host: "www.awsdevopsai.online"
      http:
        paths:
        - path: "/"
@@ -167,7 +167,7 @@ spec:
              name: websvc
              port:
               number: 80
-   - host: "www.techieproject.com"
+   - host: "www.awsdevopsai.online"
      http:
        paths:
        - path: "/banana"
@@ -177,7 +177,7 @@ spec:
                name: bananasvc
                port:
                  number: 80
-   - host: "www.techieproject.com"
+   - host: "www.awsdevopsai.online"
      http:
        paths:
        - path: "/apple"
