@@ -26,11 +26,11 @@ spec:
            protocol: TCP
         resources:
            requests:
-             memory: "40Mi"
-             cpu: "40m"
+             memory: "200Mi"
+             cpu: "100m"
            limits:
-             memory: "50Mi"
-             cpu: "50m"
+             memory: "600Mi"
+             cpu: "200m"
 ---
 apiVersion: v1
 kind: Service
@@ -75,7 +75,7 @@ metadata:
 spec:
   maxReplicas: 3
   minReplicas: 1
-  targetCPUUtilizationPercentage: 10
+  targetCPUUtilizationPercentage: 5
  #targetMemoryUtilizationPercentage: 30
   scaleTargetRef:
     apiVersion: apps/v1

@@ -34,11 +34,11 @@ resource "aws_eks_node_group" "global-node-group" {
   node_group_name = "HighIn"
   node_role_arn = aws_iam_role.global-node-group-role.arn
   subnet_ids = [aws_subnet.pubsub01.id, aws_subnet.pubsub02.id] #aws_subnet.pri01.id, aws_subnet.pri02.id]
-  instance_types = ["t2.micro"]
+  instance_types = ["t3.medium"]
   scaling_config {
-    desired_size = 2
+    desired_size = 3
     max_size = 4
-    min_size = 2
+    min_size = 3
   }
   labels = {
     zone = "west"

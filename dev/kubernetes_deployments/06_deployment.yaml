@@ -4,7 +4,7 @@ metadata:
   name: webdeployment2
   namespace: devproject
 spec:
-  replicas: 8
+  replicas: 4
   selector:
     matchLabels:
       apptype: web2

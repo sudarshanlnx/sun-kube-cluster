@@ -35,7 +35,7 @@ spec:
       - mountPath: /data
         name: commonvol
     command: ["/bin/sh"]
-  args: ["-c", "while true; do echo $(hostname) $(date) >>/data/index.html  ; sleep 10;done"]
+    args: ["-c", "while true; do echo $(hostname) $(date) >>/data/index.html  ; sleep 10;done"]
 
 ---
 apiVersion: v1

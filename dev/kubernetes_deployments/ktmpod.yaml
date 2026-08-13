@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: ktmpod
+  namespace: ktm-project
+spec:
+  containers: 
+  - name: ktm-container
+    image: sudarshanlnx/farmfresh:v1
+    imagePullPolicy: IfNotPresent
+    ports: 
+    - containerPort: 80
+      name: apache
+      protocol: TCP
+    resources:
+      requests:
+        memory: "100Mi"
+        cpu: "250m"
+      limits:
+        memory: "200Mi"
+        cpu: "500m"   
+  restartPolicy: Always

@@ -4,7 +4,7 @@ metadata:
  name: java
  namespace: devproject
 spec:
- replicas: 1
+ replicas: 2
  selector:
    matchLabels:
     apptype: web
