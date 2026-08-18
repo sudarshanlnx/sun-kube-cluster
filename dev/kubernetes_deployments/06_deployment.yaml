@@ -4,7 +4,7 @@ metadata:
   name: webdeployment2
   namespace: devproject
 spec:
-  replicas: 4
+  replicas: 5
   selector:
     matchLabels:
       apptype: web2
@@ -17,8 +17,8 @@ spec:
         env: dev2
     spec:
       containers:
-      - image: sudarshanlnx/farmfresh:v1
-#       - image: sudarshanlnx/neptune1:v1
+      # - image: sudarshanlnx/farmfresh:v1
+      - image: sudarshanlnx/neptune1:v1
         name: webcon2
         imagePullPolicy: Always
         ports:

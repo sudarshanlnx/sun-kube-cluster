@@ -1,7 +1,7 @@
 resource "aws_eks_cluster" "global-cluster" {
   name = var.clustername
   role_arn = aws_iam_role.globalrole.arn
-  version = "1.35"
+  version = "1.36"
   
 
 

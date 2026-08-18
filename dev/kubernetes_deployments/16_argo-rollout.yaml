@@ -29,8 +29,8 @@ spec:
     spec:
       containers:
       - name: rollouts-app
-#         image: sudarshanlnx/farmfresh:v1
-        image: sudarshanlnx/2022sundayweb3
+        image: sudarshanlnx/farmfresh:v1
+        # image: sudarshanlnx/2022sundayweb3
         name: webcon
         imagePullPolicy: Always
         ports:
@@ -67,7 +67,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: "www.techieproject.com"
+  - host: "www.awsdevopsai.online"
     http:
       paths:
       - path: "/"

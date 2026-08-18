@@ -31,15 +31,19 @@ resource "aws_iam_role_policy_attachment" "global-eks-container-policy" {
 
 resource "aws_eks_node_group" "global-node-group" {
   cluster_name = aws_eks_cluster.global-cluster.name
-  node_group_name = "HighIn"
+  node_group_name = "worker-node"
   node_role_arn = aws_iam_role.global-node-group-role.arn
   subnet_ids = [aws_subnet.pubsub01.id, aws_subnet.pubsub02.id] #aws_subnet.pri01.id, aws_subnet.pri02.id]
   instance_types = ["t3.medium"]
+  version = aws_eks_cluster.global-cluster.version
   scaling_config {
     desired_size = 3
-    max_size = 4
     min_size = 3
+    max_size = 4
   }
+  update_config {
+      max_unavailable = 1 #4nodes -> 3 should be available 
+    }
   labels = {
     zone = "west"
   }
